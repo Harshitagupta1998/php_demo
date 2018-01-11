@@ -1,0 +1,48 @@
+<html>
+<body>
+<table border="1">
+<tr>
+  <th>Select</th>
+    <th>Cell phone</th>
+    <th>Rating</th>
+    <th>Location</th>
+</tr>
+<tr>
+    <td align="center"><input type="checkbox" class="case" name="case[]" value="1" /></td>
+    <td>BlackBerry Bold 9650</td>
+    <td>2/5</td>
+     <td>UK</td>
+</tr>
+<tr>
+    <td align="center"><input type="checkbox" class="case" name="case[]" value="2"/></td>
+    <td>Samsung Galaxy</td>
+    <td>3.5/5</td>
+    <td>US</td>
+</tr>
+<tr>
+    <td align="center"><input type="checkbox" class="case" name="case[]" value="3"/></td>
+    <td>Droid X</td>
+    <td>4.5/5</td>
+    <td>REB</td>
+</tr>
+
+</tr>
+<input type="submit">
+</table>
+<script type="text/javascript">
+    $("input[name='case[]']").click(function(){
+ var values = "";
+       $.each($("input[name='case[]']:checked"), function(index,value) {
+           var data = $(this).parents('tr:eq(0)');
+           if(index > 0)
+               values += " and ";
+           
+           values += $(data).find('td:eq(1)').text() + "," + $(data).find('td:eq(2)').text() + "," + $(data).find('td:eq(3)').text() + ",";           
+       });
+                        
+       console.log(values);
+ });
+           
+</script>
+</body>
+</html>
